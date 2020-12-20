@@ -2,13 +2,10 @@
     <div class="error-page">
         <div class="error-code">4<span>0</span>4</div>
         <div class="error-desc">啊哦~ 你所访问的页面不存在</div>
-        <div class="error-qq">数据可能被测试者误删,请加我的前端QQ群:73110051</div>
-        <div class="error-qq">或者点数据恢复</div>
         <div class="error-handle">
             <router-link to="/login">
                 <el-button type="primary" size="large">返回登陆页</el-button>
             </router-link>
-            <el-button class="error-btn" type="danger" size="large" @click="rollBackTables">数据恢复</el-button>
             <el-button class="error-btn" type="primary" size="large" @click="goBack">返回上一页</el-button>
         </div>
     </div>
@@ -20,42 +17,6 @@ export default {
     methods: {
         goBack() {
             this.$router.go(-1);
-        },
-        rollBackTables() {
-            var text = '数据还原';
-            apis.shiroApi.rollBackTables()
-                .then(data => {
-                    var alertText='';
-                    if(data.data.status=='SUCCESS'){
-                        text += '成功';
-                        alertText=text+',请重新登陆';
-                    }
-                    else{
-                        text += '失败';
-                        alertText=text+',请重试';
-                    }
-                    this.$alert(alertText, '提示', {
-                        confirmButtonText: '确定',
-                    });
-                    log(text);
-                })
-                .catch(e => {
-                    this.$alert('数据还原异常,请重试', '提示', {
-                        confirmButtonText: '确定',
-                    });
-                    text += '失败';
-                    log(text);
-                });
-            console.log(text);
-
-            function log(text){
-                 var loginLog = {
-                ip: returnCitySN["cip"],
-                city: returnCitySN["cname"] + '-' + text
-            };
-            apis.shiroApi.loginLog(loginLog);
-            }
-           
         }
     }
 }

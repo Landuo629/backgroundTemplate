@@ -4,10 +4,11 @@
     <div class="collapse-btn" @click="collapseChage">
       <i class="el-icon-menu"></i>
     </div>
-    <!-- <div class="logo">{{$t("home.title")}}</div> -->
+    <div class="logo">{{$t("home.title")}}</div>
     <div class="header-right">
       <div class="header-user-con">
-        <!-- <marquee onMouseOver="this.start()" style="font-size:18px;padding-bottom:4px;width:100px;" scrollamount="1">{{getlev}}</marquee> -->
+        <!-- 轮播字体 -->
+        <marquee onMouseOver="this.start()" style="font-size:18px;padding-bottom:4px;width:100px;" scrollamount="1">{{getlev}}</marquee>
         <div
           style="font-size: 18px; padding-bottom: 4px; width: 60px; color: #fff"
         >
@@ -79,7 +80,7 @@ export default {
     return {
       collapse: false,
       fullscreen: false,
-      name: "merciqiao",
+      name: "admin",
       lev: "王者级",
       message: 2,
     };
@@ -160,7 +161,7 @@ export default {
   width: 100%;
   height: 70px;
   font-size: 22px;
-  background-image: url("~@/static/img/header.png");
+  /* background-image: url("~@/static/img/header.png"); */
   background-repeat: no-repeat;
   background-size: 100% 100%;
   -moz-background-size: 100% 100%;

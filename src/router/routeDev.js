@@ -42,7 +42,42 @@ var routeDevList = [
         meta: {
             title: '租户管理'
         },
-    }
+    },
+    /*
+     *  系统管理
+     */
+    {
+        path: '/loglogin',
+        component: () =>
+            import ('@/views/authorityManagement/loglogin.vue'),
+        meta: {
+            title: '登录日志'
+        },
+    },
+    {
+        path: '/peratelog',
+        component: () =>
+            import ('@/views/authorityManagement/peratelog.vue'),
+        meta: {
+            title: '操作日志'
+        },
+    },
+    {
+        path: '/dictionary',
+        component: () =>
+            import ('@/views/authorityManagement/dictionary.vue'),
+        meta: {
+            title: '字典管理'
+        },
+    },
+    {
+        path: '/token',
+        component: () =>
+            import ('@/views/authorityManagement/token.vue'),
+        meta: {
+            title: '令牌管理'
+        },
+    },
 ];
 //静态菜单
 var menuDevList = [{

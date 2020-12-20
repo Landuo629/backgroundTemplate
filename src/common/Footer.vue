@@ -1,7 +1,7 @@
 <template>
   <footer>
       <div class="footer_content">
-          <!-- 京ICP备18050367号-1 qq群:73110051(无广告) -->
+          <!-- 京ICP备18050367号-1 qq群:(无广告) -->
       </div> 
   </footer>
 </template>

@@ -34,7 +34,7 @@ export default {
         if (param.createId != '' && param.createId != undefined) {
             param += `&createId=${param.createId}`;
         }
-        return Axios.get(`/api/upms/loglogin/page?${param}`, {
+        return Axios.get(`/upms/loglogin/page?${param}`, {
             headers
         })
     },
@@ -44,14 +44,14 @@ export default {
     // 日志管理分页查询
     getUpmsLogPage(param) {
         console.log(param);
-        return Axios.get(`/api/upms/log/page?${run(param)}`, {
+        return Axios.get(`/upms/log/page?${run(param)}`, {
             headers
         })
     },
     // 删除日志
     deleteUpmsLog(id) {
         console.log(id);
-        return Axios.delete(`/api/upms/log/${id}`, { headers })
+        return Axios.delete(`/upms/log/${id}`, { headers })
     },
     /*
      * 提供字典管理相关接口
@@ -59,52 +59,52 @@ export default {
     // 分页查询列表
     getUpmsLogDictPage(param) {
         console.log(param);
-        return Axios.get(`/api/upms/dict/page?${run(param)}`, {
+        return Axios.get(`/upms/dict/page?${run(param)}`, {
             headers
         })
     },
     // 新增字典
     postUpmsDict(param) {
-        return Axios.post(`/api/upms/dict`, param, {
+        return Axios.post(`/upms/dict`, param, {
             headers
         })
     },
     // 编辑字典
     putUpmsDict(param) {
         param = JSON.stringify(param);
-        return Axios.put(`/api/upms/dict`, param, {
+        return Axios.put(`/upms/dict`, param, {
             headers
         })
     },
     // 删除字典
     deleteUpmsDict(id) {
-        return Axios.delete(`/api/upms/dict/${id}`, {
+        return Axios.delete(`/upms/dict/${id}`, {
             headers
         })
     },
     // 分页查询键值对列表
     getUpmsLogDictItemPage(param) {
         console.log(param);
-        return Axios.get(`/api/upms/dict/item/page?${run(param)}`, {
+        return Axios.get(`/upms/dict/item/page?${run(param)}`, {
             headers
         })
     },
     // 编辑键值对
     putUpmsDictItem(param) {
         param = JSON.stringify(param);
-        return Axios.put(`/api/upms/dict/item`, param, {
+        return Axios.put(`/upms/dict/item`, param, {
             headers
         })
     },
     // 删除键值对
     deleteUpmsDictItem(id) {
-        return Axios.delete(`/api/upms/dict/item/${id}`, {
+        return Axios.delete(`/upms/dict/item/${id}`, {
             headers
         })
     },
     // 新增键值对
     postUpmsDictItem(param) {
-        return Axios.post(`/api/upms/dict/item`, param, {
+        return Axios.post(`/upms/dict/item`, param, {
             headers
         })
     },

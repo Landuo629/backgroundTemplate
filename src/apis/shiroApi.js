@@ -1,17 +1,7 @@
 import Axios from "axios";
 import qs from "qs";
 import headers from "./headers";
-// 添加请求拦截器
-// axios.interceptors.request.use((config) => {
-//     // 在发送请求之前做些什么
-//     if (config.method === 'post') {
-//         config.data = qs.stringify(config.data);
-//     }
-//     return config;
-// }, (error) => {
-//     // 对请求错误做些什么
-//     return Promise.reject(error);
-// });
+
 /**
  * 系统认证接口
  */
@@ -38,15 +28,8 @@ export default {
     },
     // 获取菜单
     loginMenu: function() {
-        // var param = {
-        //     grant_type: "password",
-        //     username: loginName,
-        //     password: password,
-        //     scope: "server"
-        // };
         console.log(headers)
         return Axios.get('/upms/menu', {
-            // param,
             headers
         });
     },
@@ -54,7 +37,7 @@ export default {
      * 退出登陆
      */
     loginOut: function() {
-        return Axios.post('/api/shiro-api/loginout');
+        return Axios.post('/shiro-api/loginout');
     },
     /**
      * 记录登陆日志
@@ -65,12 +48,12 @@ export default {
             city: city,
             type: type
         };
-        return Axios.post('/api/loginlog-api/save', param);
+        return Axios.post('/loginlog-api/save', param);
     },
     /**
      * 还原数据
      */
     rollBackTables: function() {
-        return Axios.post('/api/loginlog-api/rollBackTables');
+        return Axios.post('/loginlog-api/rollBackTables');
     }
 }
