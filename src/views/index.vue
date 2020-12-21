@@ -48,33 +48,7 @@ import apis from "@/apis/apis";
 export default {
   data() {
     return {
-      zanzhu:[]
     }
   },
-  methods: {
-    openZanZhu(){
-      this.$common.OpenNewPage(this,'zanzhu');
-    },
-    getZanZhu(){
-      apis.mayiApi.getZanZhu().then(res=>{
-        if(res.status=="200"){
-          if(res.data.dataList){
-            this.zanzhu=res.data.dataList;
-          }
-        }
-      }).catch(
-        
-      );
-    },
-    getDate(param){
-      return this.$common.toDate(param);
-    } 
-  },
-  mounted() {
-    this.getZanZhu();
-  },
-  computed:{
-    
-  }
 };
 </script>

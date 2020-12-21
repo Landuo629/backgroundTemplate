@@ -1,5 +1,5 @@
-import router from '@/router'
-import routeDev from '@/router/routeDev'
+import router from '@/router';
+import routeDev from '@/router/routeDev';
 
 /**
  * 动态添加路由

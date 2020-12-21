@@ -3,15 +3,15 @@ import Vue from 'vue'
 import Vuex from "vuex";
 
 Vue.use(Vuex);
-// import VuexPersistence from 'vuex-persist'; //持久化存储
+import VuexPersistence from 'vuex-persist'; //持久化存储
 
-// const vuexLocal = new VuexPersistence({
-//     storage: window.localStorage
-// }) 
+const vuexLocal = new VuexPersistence({
+    storage: window.localStorage
+})
 
 const store = new Vuex.Store({
         modules: modules,
-        // plugins: [vuexLocal.plugin]
+        plugins: [vuexLocal.plugin]
     })
     //刷新加载的方法
 const refresh = function() {

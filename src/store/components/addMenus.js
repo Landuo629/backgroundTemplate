@@ -14,7 +14,6 @@ const addMenus = {
             } else {
                 return state.menuList;
             }
-
         }
     },
     mutations: {

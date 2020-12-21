@@ -106,7 +106,8 @@ export default {
     // 用户名下拉菜单选择事件
     handleCommand(command) {
       if (command == "loginout") {
-        sessionStorage.setItem("token", null);
+        // 退出登陆
+        sessionStorage.setItem("token", '');
         this.$router.push("/login");
       } else if (command == "changeZh") {
         this.$i18n.locale = "zh_CN";
