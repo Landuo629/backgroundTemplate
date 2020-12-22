@@ -116,8 +116,8 @@
           >
           </el-table-column>
           <el-table-column
-            :show-overflow-tooltip="$store.state.permission.tooltip"
             fixed="right"
+            width="200"
             align="center"
             label="操作"
             min-width="150"

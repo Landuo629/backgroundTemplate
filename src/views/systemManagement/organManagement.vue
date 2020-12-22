@@ -77,7 +77,7 @@
       >
       </el-table-column>
       <el-table-column
-        :show-overflow-tooltip="$store.state.permission.tooltip"
+       width="200"
         label="操作"
         align="center"
       >

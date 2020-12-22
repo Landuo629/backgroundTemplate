@@ -46,11 +46,11 @@
           </span>
 
           <el-dropdown-menu slot="dropdown">
-            <a href="https://github.com/merciqiao" target="_blank">
+            <a href="https://github.com/Landuo629/" target="_blank">
               <el-dropdown-item>关于作者</el-dropdown-item>
             </a>
             <a
-              href="https://github.com/merciqiao/merciqiao-vue"
+              href="https://github.com/Landuo629/backgroundTemplate"
               target="_blank"
             >
               <el-dropdown-item>项目仓库</el-dropdown-item>

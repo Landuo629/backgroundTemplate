@@ -51,7 +51,7 @@
       >
         <template slot-scope="scope">
           <div slot="reference" class="name-wrapper">
-            <el-tag size="medium">{{
+            <el-tag size="medium" :style="{'color': (parseInt(scope.row.type, 10) ? '#f56c6c' : '#409eff')}">{{
               parseInt(scope.row.type, 10) ? "按钮" : "菜单"
             }}</el-tag>
           </div>
@@ -94,8 +94,8 @@
       >
       </el-table-column>
       <el-table-column
-        :show-overflow-tooltip="$store.state.permission.tooltip"
         label="操作"
+        width="200"
         align="center"
       >
         <template slot-scope="scope">
