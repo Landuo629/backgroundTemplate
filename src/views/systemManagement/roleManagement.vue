@@ -8,6 +8,7 @@
           icon="el-icon-plus"
           type="primary"
           @click="formAddClick"
+          v-if="buttonList.indexOf('sys:role:add') != -1"
           >新增</el-button
         >
       </el-col>
@@ -89,6 +90,7 @@
             type="text"
             size="small"
             icon="el-icon-view"
+            v-if="buttonList.indexOf('sys:role:get') != -1"
             >查看</el-button
           >
           <el-button
@@ -96,6 +98,7 @@
             type="text"
             size="small"
             icon="el-icon-edit"
+            v-if="buttonList.indexOf('sys:role:edit') != -1"
             >编辑</el-button
           >
           <el-button
@@ -103,6 +106,7 @@
             type="text"
             size="small"
             icon="el-icon-delete"
+            v-if="buttonList.indexOf('sys:role:del') != -1"
             >删 除</el-button
           >
           <el-button
@@ -110,6 +114,7 @@
             type="text"
             size="small"
             icon="el-icon-document"
+             v-if="buttonList.indexOf('sys:role:perm') != -1"
             >权限</el-button
           >
         </template>
@@ -305,6 +310,11 @@ export default {
   // 初始化表格参数
   mounted() {
     this.formGetClick();
+  },
+  computed: {
+    buttonList() {
+      return this.$store._modules.root.context.state.button.buttonList;
+    }
   },
   methods: {
     // 获取所有角色数据

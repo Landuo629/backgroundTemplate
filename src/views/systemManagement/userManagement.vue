@@ -23,6 +23,7 @@
               icon="el-icon-plus"
               type="primary"
               @click="formAddClick"
+              v-if="buttonList.indexOf('sys:user:add') != -1"
               >新增</el-button
             >
           </el-col>
@@ -128,6 +129,7 @@
                 type="text"
                 size="small"
                 icon="el-icon-view"
+                v-if="buttonList.indexOf('sys:user:get') != -1"
                 >查看</el-button
               >
               <el-button
@@ -135,6 +137,7 @@
                 type="text"
                 size="small"
                 icon="el-icon-edit"
+                v-if="buttonList.indexOf('sys:user:edit') != -1"
                 >编辑</el-button
               >
               <el-button
@@ -142,12 +145,14 @@
                 type="text"
                 size="small"
                 icon="el-icon-delete"
+                 v-if="buttonList.indexOf('sys:user:del') != -1"
                 >删 除</el-button
               >
               <el-button
                 @click="changePassword(scope.row)"
                 type="text"
                 size="small"
+                 v-if="buttonList.indexOf('sys:user:password') != -1"
                 >修改密码</el-button
               >
               <el-button
@@ -668,6 +673,11 @@ export default {
   mounted() {
     this.getUpmsOrganTree();
     this.formGetClick();
+  },
+  computed: {
+    buttonList() {
+      return this.$store._modules.root.context.state.button.buttonList;
+    }
   },
   watch: {
     filterText(val) {

@@ -9,6 +9,7 @@
           type="primary"
           @click="formAddClick"
           icon="el-icon-plus"
+          v-if="buttonList.indexOf('sys:organ:add') != -1"
           >新增</el-button
         >
       </el-col>
@@ -76,25 +77,30 @@
         align="center"
       >
       </el-table-column>
-      <el-table-column
-       width="200"
-        label="操作"
-        align="center"
-      >
+      <el-table-column width="200" label="操作" align="center">
         <template slot-scope="scope">
-          <el-button @click="formSeeClick(scope.row)" type="text" size="small"
+          <el-button
+            @click="formSeeClick(scope.row)"
+            type="text"
+            size="small"
+            icon="el-icon-view"
+            v-if="buttonList.indexOf('sys:organ:get') != -1"
             >查看</el-button
           >
           <el-button
             @click="formModifyClick(scope.row)"
             type="text"
             size="small"
+            icon="el-icon-edit"
+            v-if="buttonList.indexOf('sys:organ:edit') != -1"
             >编辑</el-button
           >
           <el-button
             @click="formDeleteClick(scope.row)"
             type="text"
             size="small"
+            icon="el-icon-delete"
+            v-if="buttonList.indexOf('sys:organ:del') != -1"
             >删 除</el-button
           >
         </template>
@@ -434,6 +440,11 @@ export default {
   // 初始化数据
   mounted() {
     this.formGetClick();
+  },
+  computed: {
+    buttonList() {
+      return this.$store._modules.root.context.state.button.buttonList;
+    },
   },
   methods: {
     // 获取所有表格数据

@@ -66,8 +66,9 @@ export default {
           console.log("menu:成功", menu);
           if (menu.data.code == 0) {
             let json = menu.data.data;
-            console.log(json);
             this.$router.replace({ path: "/index" });
+             // 存入权限,渲染按钮
+            this.$store.dispatch("add_buttons", json);
             // 存入菜单,渲染菜单
             this.$store.dispatch("add_Menus", json);
              sessionStorage.setItem(

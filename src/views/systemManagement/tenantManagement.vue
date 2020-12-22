@@ -9,6 +9,7 @@
           type="primary"
           icon="el-icon-plus"
           @click="formAddClick"
+          v-if="buttonList.indexOf('sys:tenant:add') != -1"
           >新增</el-button
         >
       </el-col>
@@ -76,17 +77,14 @@
         align="center"
       >
       </el-table-column>
-      <el-table-column
-        width="200"
-        label="操作"
-        align="center"
-      >
+      <el-table-column width="200" label="操作" align="center">
         <template slot-scope="scope">
           <el-button
             @click="formSeeClick(scope.row)"
             type="text"
             size="small"
             icon="el-icon-view"
+            v-if="buttonList.indexOf('sys:tenant:index') != -1"
             >查看</el-button
           >
           <el-button
@@ -94,6 +92,7 @@
             type="text"
             size="small"
             icon="el-icon-edit"
+            v-if="buttonList.indexOf('sys:tenant:edit') != -1"
             >编辑</el-button
           >
           <el-button
@@ -101,6 +100,7 @@
             type="text"
             size="small"
             icon="el-icon-delete"
+            v-if="buttonList.indexOf('sys:tenant:del') != -1"
             >删 除</el-button
           >
           <el-button
@@ -108,6 +108,7 @@
             type="text"
             size="small"
             icon="el-icon-document"
+            v-if="buttonList.indexOf('sys:tenant:roleperm') != -1"
             >管理员角色权限</el-button
           >
         </template>
@@ -481,6 +482,11 @@ export default {
   // 初始化数据
   mounted() {
     this.formGetClick();
+  },
+  computed: {
+    buttonList() {
+      return this.$store._modules.root.context.state.button.buttonList;
+    }
   },
   methods: {
     // 获取所有表格数据

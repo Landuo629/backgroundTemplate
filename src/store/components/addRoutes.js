@@ -2,7 +2,7 @@ import router from '@/router';
 import routeDev from '@/router/routeDev';
 
 /**
- * 动态添加路由
+ * 动态添加按钮权限
  * author:qlx
  */
 const addRoutes = {
