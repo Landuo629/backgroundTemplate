@@ -121,7 +121,7 @@
             width="200"
             align="center"
             label="操作"
-            min-width="150"
+            min-width="100"
           >
             <template slot-scope="scope">
               <el-button

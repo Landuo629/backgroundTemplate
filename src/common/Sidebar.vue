@@ -25,13 +25,11 @@
         data() {
             return {
                 collapse: false,
+                onRoutes:this.$route.path.replace('/','')
             }
         },
         computed:mapGetters({
             menuList:'getMenuList',
-            onRoutes(){
-                return this.$route.path.replace('/','');
-            }
         }),
         created(){
             // 通过 Event Bus 进行组件间通信，来折叠侧边栏

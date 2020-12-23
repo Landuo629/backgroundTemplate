@@ -62,7 +62,7 @@ export default {
           // 存入 token
           sessionStorage.setItem("token", res.data.tokenHead + res.data.token);
           // 获取菜单等
-          let menu = await apis.shiroApi.loginMenu();
+          const menu = await apis.shiroApi.loginMenu();
           console.log("menu:成功", menu);
           if (menu.data.code == 0) {
             let json = menu.data.data;

@@ -38,7 +38,7 @@ const addMenus = {
                     // }
                     menu.icon = `el-icon-${menuParam.icon}`;
                     // menu.index=menuParam.orderBy;
-                    menu.index = menuParam.path.slice(1);
+                    menu.index = menuParam.path;
                     menu.title = menuParam.name;
                     if (menuParam.children && menuParam.children.length > 0) {
                         _addMenu(menu.subs, menuParam.children);
