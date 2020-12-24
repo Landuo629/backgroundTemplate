@@ -107,7 +107,6 @@ export default {
     handleCommand(command) {
       if (command == "loginout") {
         // 退出登陆
-        sessionStorage.setItem("token", '');
         this.$router.push("/login");
       } else if (command == "changeZh") {
         this.$i18n.locale = "zh_CN";
@@ -162,7 +161,6 @@ export default {
   width: 100%;
   height: 70px;
   font-size: 22px;
-  /* background-image: url("~@/static/img/header.png"); */
   background-repeat: no-repeat;
   background-size: 100% 100%;
   -moz-background-size: 100% 100%;

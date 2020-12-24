@@ -12,15 +12,15 @@
           <el-input v-model="formLogin.password" placeholder="密码"></el-input>
         </el-form-item>
         <el-form-item>
-          <el-button type="primary" @click="login">登陆</el-button>
+          <el-button type="primary" @click="login">登 陆</el-button>
           <span v-show="this.errorInfo.isShowError" class="error">
             {{ this.errorInfo.text }}
           </span>
         </el-form-item>
       </el-form>
     </div>
-    <!-- <p class="bei">京ICP备18050367号-1</p>
-    <p class="recover" @click="rollBackTables">如果登陆数据异常,点此恢复数据</p> -->
+    <!-- <p class="bei">京ICP备18050367号-1</p> -->
+    <img ref="img" src='@/static/img/loginbg.webp' alt="">
   </div>
 </template>
 
@@ -42,6 +42,11 @@ export default {
     };
   },
   mounted() {
+    setTimeout(() => {
+      this.$refs.img.src = "../static/img/loginbg.png";
+    }, 1000);
+
+    sessionStorage.setItem("token", "");
     // 回车点击回调
     document.onkeydown = (event) => {
       const e = event || window.event || arguments.callee.caller.arguments[0];
@@ -67,14 +72,11 @@ export default {
           if (menu.data.code == 0) {
             let json = menu.data.data;
             this.$router.replace({ path: "/index" });
-             // 存入权限,渲染按钮
+            // 存入权限,渲染按钮
             this.$store.dispatch("add_buttons", json);
             // 存入菜单,渲染菜单
             this.$store.dispatch("add_Menus", json);
-             sessionStorage.setItem(
-              "username",
-              this.formLogin.loginName
-            );
+            sessionStorage.setItem("username", this.formLogin.loginName);
             //  sessionStorage.setItem("lev", json.sysRoleVoList);
           }
         }
@@ -96,7 +98,7 @@ $input_width: 300px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: url("~@/static/img/loginbg.png");
+  // background-image: url("~@/static/img/loginbg.png");
   background-repeat: no-repeat;
   background-size: 100% 100%;
   .login {

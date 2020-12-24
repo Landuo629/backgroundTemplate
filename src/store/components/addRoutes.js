@@ -46,9 +46,9 @@ const addRoutes = {
             console.log('输出路由:', JSON.stringify(rootRoute));
         },
         add_Routes_Fresh(state) {
-            //if(state.routeParam&&state.routeParam.length>0){
+            // if (state.routeParam && state.routeParam.length > 0) {
             this.commit('add_Routes', state.routeParam)
-                //}
+                // }
         }
     },
     actions: {
