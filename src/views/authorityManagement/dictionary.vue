@@ -4,42 +4,46 @@
       <div class="container">
         <!-- 操作区----start -->
         <!-- 搜索框----start -->
-        <el-row v-show="inputShow" style="margin-bottom: 20px">
-          <el-col :span="6">
-            <span>类型：</span>
-            <el-select
-              v-model="loginRow.type"
-              size="small"
-              placeholder="请选择"
-            >
-              <el-option label="正常" :value="0"> </el-option>
-              <el-option label="异常" :value="1"> </el-option>
-            </el-select>
-          </el-col>
-          <el-col :span="6">
-            <span>请求方式：</span>
-            <el-select
-              v-model="loginRow.method"
-              size="small"
-              placeholder="请选择"
-            >
-              <el-option label="查询" value="GET"> </el-option>
-              <el-option label="更新" value="PUT"> </el-option>
-              <el-option label="新增" value="POST"> </el-option>
-              <el-option label="删除" value="DELETE"> </el-option>
-            </el-select>
-          </el-col>
-          <el-col :span="12">
-            <el-button
-              type="primary"
-              size="small"
-              icon="el-icon-search"
-              @click="refresh"
-              >搜索</el-button
-            >
-            <el-button size="small" icon="el-icon-delete">清空</el-button>
-          </el-col>
-        </el-row>
+        <el-collapse-transition>
+          <div v-show="inputShow">
+            <el-row style="margin-bottom: 20px">
+              <el-col :span="6">
+                <span>类型：</span>
+                <el-select
+                  v-model="loginRow.type"
+                  size="small"
+                  placeholder="请选择"
+                >
+                  <el-option label="正常" :value="0"> </el-option>
+                  <el-option label="异常" :value="1"> </el-option>
+                </el-select>
+              </el-col>
+              <el-col :span="6">
+                <span>请求方式：</span>
+                <el-select
+                  v-model="loginRow.method"
+                  size="small"
+                  placeholder="请选择"
+                >
+                  <el-option label="查询" value="GET"> </el-option>
+                  <el-option label="更新" value="PUT"> </el-option>
+                  <el-option label="新增" value="POST"> </el-option>
+                  <el-option label="删除" value="DELETE"> </el-option>
+                </el-select>
+              </el-col>
+              <el-col :span="12">
+                <el-button
+                  type="primary"
+                  size="small"
+                  icon="el-icon-search"
+                  @click="refresh"
+                  >搜索</el-button
+                >
+                <el-button size="small" icon="el-icon-delete">清空</el-button>
+              </el-col>
+            </el-row>
+          </div>
+        </el-collapse-transition>
 
         <el-row class="mgb15">
           <el-col :span="22">
@@ -244,8 +248,10 @@
         <el-dialog
           title="编辑"
           :visible.sync="formModifyVisible"
-          @closed="tableDataRow = {};
-          $refs.tableDataRow.resetFields();"
+          @closed="
+            tableDataRow = {};
+            $refs.tableDataRow.resetFields();
+          "
           width="700px"
         >
           <el-form
@@ -382,8 +388,10 @@
     <el-dialog
       title="编辑"
       :visible.sync="formModifyVisible2"
-      @closed="KV.tableDataRow = {};
-      $refs.tableDataRow2.resetFields();"
+      @closed="
+        KV.tableDataRow = {};
+        $refs.tableDataRow2.resetFields();
+      "
       width="700px"
     >
       <el-form
@@ -439,8 +447,10 @@
     <el-dialog
       title="新增"
       :visible.sync="fromAddVisible2"
-      @closed="KV.formAddData = {};
-      $refs.formAddData2.resetFields();"
+      @closed="
+        KV.formAddData = {};
+        $refs.formAddData2.resetFields();
+      "
       width="700px"
     >
       <el-form
@@ -614,7 +624,7 @@ export default {
     },
     // 点击编辑某条字典后确定
     async formModifyDetermine() {
-       try {
+      try {
         await this.$refs.tableDataRow.validate();
       } catch (err) {
         return false;
@@ -742,7 +752,7 @@ export default {
         console.log(res);
         if (res.data.code == 0) {
           this.$message.success("删除成功");
-         this.getUpmsLogDictItemPage();
+          this.getUpmsLogDictItemPage();
         } else {
           this.$message.error(res.data.msg);
         }

@@ -20,7 +20,6 @@
       </el-form>
     </div>
     <!-- <p class="bei">京ICP备18050367号-1</p> -->
-    <img ref="img" src='@/static/img/loginbg.webp' alt="">
   </div>
 </template>
 
@@ -42,10 +41,6 @@ export default {
     };
   },
   mounted() {
-    setTimeout(() => {
-      this.$refs.img.src = "../static/img/loginbg.png";
-    }, 1000);
-
     sessionStorage.setItem("token", "");
     // 回车点击回调
     document.onkeydown = (event) => {
@@ -98,7 +93,7 @@ $input_width: 300px;
   display: flex;
   align-items: center;
   justify-content: center;
-  // background-image: url("~@/static/img/loginbg.png");
+  background-image: url("~@/static/img/loginbg.png");
   background-repeat: no-repeat;
   background-size: 100% 100%;
   .login {

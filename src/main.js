@@ -5,7 +5,9 @@ import store from './store';
 import Vuex from 'vuex';
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
-//引入多语言支持
+import CollapseTransition from 'element-ui/lib/transitions/collapse-transition';
+Vue.component(CollapseTransition.name, CollapseTransition)
+    //引入多语言支持
 import i18n from '@/common/i18n';
 Vue.use(ElementUI);
 Vue.use(Vuex);

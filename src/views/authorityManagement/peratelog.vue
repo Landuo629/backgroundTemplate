@@ -2,34 +2,46 @@
   <div class="container">
     <!-- 操作区----start -->
     <!-- 搜索框----start -->
-    <el-row v-show="inputShow" style="margin-bottom: 20px">
-      <el-col :span="6">
-        <span>类型：</span>
-        <el-select v-model="loginRow.type" size="small" placeholder="请选择">
-          <el-option label="正常" :value="0"> </el-option>
-          <el-option label="异常" :value="1"> </el-option>
-        </el-select>
-      </el-col>
-      <el-col :span="6">
-        <span>请求方式：</span>
-        <el-select v-model="loginRow.method" size="small" placeholder="请选择">
-          <el-option label="查询" value="GET"> </el-option>
-          <el-option label="更新" value="PUT"> </el-option>
-          <el-option label="新增" value="POST"> </el-option>
-          <el-option label="删除" value="DELETE"> </el-option>
-        </el-select>
-      </el-col>
-      <el-col :span="12">
-        <el-button
-          type="primary"
-          size="small"
-          icon="el-icon-search"
-          @click="refresh"
-          >搜索</el-button
-        >
-        <el-button size="small" icon="el-icon-delete">清空</el-button>
-      </el-col>
-    </el-row>
+    <el-collapse-transition>
+      <div v-show="inputShow">
+        <el-row style="margin-bottom: 20px">
+          <el-col :span="6">
+            <span>类型：</span>
+            <el-select
+              v-model="loginRow.type"
+              size="small"
+              placeholder="请选择"
+            >
+              <el-option label="正常" :value="0"> </el-option>
+              <el-option label="异常" :value="1"> </el-option>
+            </el-select>
+          </el-col>
+          <el-col :span="6">
+            <span>请求方式：</span>
+            <el-select
+              v-model="loginRow.method"
+              size="small"
+              placeholder="请选择"
+            >
+              <el-option label="查询" value="GET"> </el-option>
+              <el-option label="更新" value="PUT"> </el-option>
+              <el-option label="新增" value="POST"> </el-option>
+              <el-option label="删除" value="DELETE"> </el-option>
+            </el-select>
+          </el-col>
+          <el-col :span="12">
+            <el-button
+              type="primary"
+              size="small"
+              icon="el-icon-search"
+              @click="refresh"
+              >搜索</el-button
+            >
+            <el-button size="small" icon="el-icon-delete">清空</el-button>
+          </el-col>
+        </el-row>
+      </div>
+    </el-collapse-transition>
 
     <el-row class="mgb15">
       <el-col :span="22">
@@ -65,8 +77,8 @@
     <!-- 登陆日志 ---start -->
     <!-- 表格部分 -->
     <el-table :data="loginData" border style="width: 100%">
-       <el-table-column
-      :show-overflow-tooltip="$store.state.permission.tooltip"
+      <el-table-column
+        :show-overflow-tooltip="$store.state.permission.tooltip"
         type="index"
         align="center"
         label="序号"
@@ -74,8 +86,8 @@
         min-width="150"
       >
       </el-table-column>
-       <el-table-column
-      :show-overflow-tooltip="$store.state.permission.tooltip"
+      <el-table-column
+        :show-overflow-tooltip="$store.state.permission.tooltip"
         prop="type"
         align="center"
         label="类型"
@@ -83,27 +95,32 @@
         :formatter="typeFormat"
       >
       </el-table-column>
-       <el-table-column
-      :show-overflow-tooltip="$store.state.permission.tooltip" prop="title" align="center" label="标题" min-width="120">
+      <el-table-column
+        :show-overflow-tooltip="$store.state.permission.tooltip"
+        prop="title"
+        align="center"
+        label="标题"
+        min-width="120"
+      >
       </el-table-column>
-       <el-table-column
-      :show-overflow-tooltip="$store.state.permission.tooltip"
+      <el-table-column
+        :show-overflow-tooltip="$store.state.permission.tooltip"
         prop="remoteAddr"
         align="center"
         label="IP地址"
         min-width="120"
       >
       </el-table-column>
-       <el-table-column
-      :show-overflow-tooltip="$store.state.permission.tooltip"
+      <el-table-column
+        :show-overflow-tooltip="$store.state.permission.tooltip"
         prop="requestUri"
         align="center"
         label="资源路径"
         min-width="120"
       >
       </el-table-column>
-       <el-table-column
-      :show-overflow-tooltip="$store.state.permission.tooltip"
+      <el-table-column
+        :show-overflow-tooltip="$store.state.permission.tooltip"
         prop="method"
         align="center"
         label="请求方式"
@@ -111,32 +128,32 @@
         :formatter="methodFormat"
       >
       </el-table-column>
-       <el-table-column
-      :show-overflow-tooltip="$store.state.permission.tooltip"
+      <el-table-column
+        :show-overflow-tooltip="$store.state.permission.tooltip"
         prop="serviceId"
         align="center"
         label="操作人"
         min-width="120"
       >
       </el-table-column>
-       <el-table-column
-      :show-overflow-tooltip="$store.state.permission.tooltip"
+      <el-table-column
+        :show-overflow-tooltip="$store.state.permission.tooltip"
         prop="time"
         align="center"
         label="请求时间"
         min-width="120"
       >
       </el-table-column>
-       <el-table-column
-      :show-overflow-tooltip="$store.state.permission.tooltip"
+      <el-table-column
+        :show-overflow-tooltip="$store.state.permission.tooltip"
         prop="createTime"
         align="center"
         label="创建时间"
         min-width="120"
       >
       </el-table-column>
-       <el-table-column
-      :show-overflow-tooltip="$store.state.permission.tooltip"
+      <el-table-column
+        :show-overflow-tooltip="$store.state.permission.tooltip"
         fixed="right"
         align="center"
         label="操作"
