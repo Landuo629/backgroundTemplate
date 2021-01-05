@@ -20,6 +20,8 @@
       </el-form>
     </div>
     <!-- <p class="bei">京ICP备18050367号-1</p> -->
+    <img class="img" src="@/static/img/loginbg.webp" />
+    <img class="img img2" src="@/static/img/loginbg.png" />
   </div>
 </template>
 
@@ -41,6 +43,7 @@ export default {
     };
   },
   mounted() {
+    // myImg.src = src;
     sessionStorage.setItem("token", "");
     // 回车点击回调
     document.onkeydown = (event) => {
@@ -93,7 +96,7 @@ $input_width: 300px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: url("~@/static/img/loginbg.png");
+  // background-image: url("~@/static/img/loginbg.png");
   background-repeat: no-repeat;
   background-size: 100% 100%;
   .login {
@@ -102,6 +105,7 @@ $input_width: 300px;
     top: 30%;
     width: 460px;
     height: 40%;
+    z-index: 2;
     // margin-top: -150px;
     border: 1px solid #eaeaea;
     box-shadow: 0 0 25px #cac6c6;
@@ -140,5 +144,17 @@ $input_width: 300px;
   bottom: 20px;
   cursor: pointer;
   color: #505458;
+}
+.img {
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+.img2 {
+  position: fixed;;
+  top: 0px;
+  left: 0px;
+  z-index: 1;
 }
 </style>
