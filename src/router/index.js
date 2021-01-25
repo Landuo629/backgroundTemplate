@@ -16,7 +16,7 @@ const routes = [{
         meta: {
             title: '登陆'
         }
-    }, ,
+    }, 
     {
         path: '/404',
         component: () =>
